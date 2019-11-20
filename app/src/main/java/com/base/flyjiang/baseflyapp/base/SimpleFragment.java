@@ -14,7 +14,7 @@ import me.yokeyword.fragmentation.SupportFragment;
 
 
 /**
- *Created by flyjiang on 2019/8/2.
+ * Created by flyjiang on 2019/8/2.
  * 说明: Fragment基类，无mvp
  */
 public abstract class SimpleFragment extends SupportFragment {
@@ -22,7 +22,7 @@ public abstract class SimpleFragment extends SupportFragment {
     protected Context mContext;
     protected boolean isVisible; //是否可见
     protected boolean isPrepared;  //View是否已加载完毕
-  //  protected boolean isFirst = true;//是否第一次加载数据,为false时，切换不在重新加载数据
+    //  protected boolean isFirst = true;//是否第一次加载数据,为false时，切换不在重新加载数据
     protected int pageSize = 10;
 
     /**
@@ -50,9 +50,9 @@ public abstract class SimpleFragment extends SupportFragment {
         if (rootView == null) {
             rootView = initView(inflater);
         }
-        if(isUseLoading&&mLoadingLayout==null){
+        if (isUseLoading && mLoadingLayout == null) {
             mLoadingLayout = (LoadingLayout) inflater.inflate(R.layout.loading_layout, null);
-            mLoadingLayout.addView(rootView,0); //自定义的界面加载到最底层
+            mLoadingLayout.addView(rootView, 0); //自定义的界面加载到最底层
             mLoadingLayout.setOnReloadListener(new LoadingLayout.OnReloadListener() { //load点击重试功能
                 @Override
                 public void onReload(View v) {
@@ -60,7 +60,7 @@ public abstract class SimpleFragment extends SupportFragment {
                 }
             });
         }
-        return isUseLoading?mLoadingLayout:rootView;
+        return isUseLoading ? mLoadingLayout : rootView;
     }
 
     @Override
@@ -71,12 +71,12 @@ public abstract class SimpleFragment extends SupportFragment {
         lazyLoad();
     }
 
-    public void lazyLoad(){
-        if (!isPrepared  || !isVisible ) { //   || !isFirst
+    public void lazyLoad() {
+        if (!isPrepared || !isVisible) { //   || !isFirst
             return;
         }
         initData();
-     //   isFirst = false;
+        //   isFirst = false;
     }
 
     @Override
@@ -95,11 +95,11 @@ public abstract class SimpleFragment extends SupportFragment {
         super.onDestroyView();
         isPrepared = false;
         isVisible = false;
-        if(isUseLoading){
+        if (isUseLoading) {
             if (mLoadingLayout != null && mLoadingLayout.getParent() != null) {
                 ((ViewGroup) mLoadingLayout.getParent()).removeView(mLoadingLayout);
             }
-        }else{
+        } else {
             if (rootView != null && rootView.getParent() != null) {
                 ((ViewGroup) rootView.getParent()).removeView(rootView);
             }

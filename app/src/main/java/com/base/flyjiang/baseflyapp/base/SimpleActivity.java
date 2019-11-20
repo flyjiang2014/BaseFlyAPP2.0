@@ -28,7 +28,7 @@ import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportActivity;
 
 /**
- *  Created by flyjiang on 2019/8/2.
+ * Created by flyjiang on 2019/8/2.
  * 说明: Activity 基类,无mvp
  * ━━━━━━神兽出没━━━━━━
  * 　　　┏┓　　　┏┓
@@ -48,7 +48,7 @@ import me.yokeyword.fragmentation.SupportActivity;
  * 　　　　┗┓┓┏━┳┓┏┛
  * 　　　　　┃┫┫　┃┫┫
  * 　　　　　┗┻┛　┗┻┛
- *
+ * <p>
  * ━━━━━━感觉萌萌哒━━━━━━
  */
 
@@ -193,7 +193,7 @@ public abstract class SimpleActivity extends SupportActivity {
             SystemBarTintManager tintManager = new SystemBarTintManager(this);
             tintManager.setStatusBarTintEnabled(true);
             tintManager.setStatusBarTintColor(statusColor == -1 ? getResources().getColor(R.color.black) : statusColor);
-          //  tintManager.setStatusBarTintColor(statusColor);
+            //  tintManager.setStatusBarTintColor(statusColor);
         }
         if (!isNotFillSysState) {
             mBaseContainer.setClipToPadding(false);
@@ -231,12 +231,12 @@ public abstract class SimpleActivity extends SupportActivity {
         //loadingDialog 页面加载中dialog
         loadingDialog = dialogCreate();
         //loading 布局,页面状态展示
-        mLoadingLayout = (LoadingLayout)inflater.inflate(R.layout.loading_layout, null);
+        mLoadingLayout = (LoadingLayout) inflater.inflate(R.layout.loading_layout, null);
         //是否使用loading框架,自定义标题栏的或其他特殊需求的可设为false,然后到具体的界面去实现LoadingLayout
-        if(isUseLoading&&isShowTitle){
-            mLoadingLayout.addView(view,0); //自定义的界面加载到最底层
-            mBaseContainer.addView(mLoadingLayout,params);
-        }else{
+        if (isUseLoading && isShowTitle) {
+            mLoadingLayout.addView(view, 0); //自定义的界面加载到最底层
+            mBaseContainer.addView(mLoadingLayout, params);
+        } else {
             mBaseContainer.addView(view, params);
         }
         setContentView(mBaseContainer);
@@ -244,6 +244,7 @@ public abstract class SimpleActivity extends SupportActivity {
 
     /**
      * 设置活动的布局ID
+     *
      * @return
      */
     public abstract int setBaseContentView();
@@ -292,9 +293,10 @@ public abstract class SimpleActivity extends SupportActivity {
 
     /**
      * Toast的显示(默认位置)
+     *
      * @param message 需要显示的信息
      */
-    public void showToast(CharSequence message ){
+    public void showToast(CharSequence message) {
         ToastUtil.showToast(message);
     }
 
@@ -318,6 +320,7 @@ public abstract class SimpleActivity extends SupportActivity {
 
     /**
      * 设置是否显示标题,如需设置需要在onCreateBefore方法执行
+     *
      * @param isShowTitle
      */
     public void setIsShowTitle(boolean isShowTitle) {
@@ -326,6 +329,7 @@ public abstract class SimpleActivity extends SupportActivity {
 
     /**
      * 设置是否使用loading布局,如需设置需要在onCreateBefore方法执行
+     *
      * @param isUseLoading
      */
     public void setIsUseLoading(boolean isUseLoading) {
@@ -371,7 +375,6 @@ public abstract class SimpleActivity extends SupportActivity {
 
     /**
      * 获取LoadingLayout控件
-     *
      */
     public LoadingLayout getmLoadingLayout() {
         return mLoadingLayout;
