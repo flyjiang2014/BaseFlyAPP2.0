@@ -48,7 +48,7 @@ public abstract class SimpleFragment extends SupportFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedanceState) {
         if (rootView == null) {
-            rootView = initView(inflater);
+            rootView = initLayoutView(inflater);
         }
         if (isUseLoading && mLoadingLayout == null) {
             mLoadingLayout = (LoadingLayout) inflater.inflate(R.layout.loading_layout, null);
@@ -90,6 +90,16 @@ public abstract class SimpleFragment extends SupportFragment {
         }
     }
 
+    /**
+     * 子类实现初始化View操作
+     */
+    private View initLayoutView(LayoutInflater inflater){
+        View view = inflater.inflate(onLayoutRes(),null);
+        initView(view);
+        initViewData();
+        return view;
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -107,9 +117,11 @@ public abstract class SimpleFragment extends SupportFragment {
     }
 
     /**
-     * 子类实现初始化View操作
+     * 子类实现初始化布局view
      */
-    protected abstract View initView(LayoutInflater inflater);
+    protected abstract int onLayoutRes();
+
+    public abstract void initView(View view);
 
     /**
      * 子类实现初始化View本地数据初始化
