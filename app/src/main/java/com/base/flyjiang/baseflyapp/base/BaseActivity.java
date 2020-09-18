@@ -66,7 +66,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends SimpleActivi
 
     @Override
     public void showDialogLoading() {
-        if (!loadingDialog.isShowing()) {
+        if (!loadingDialog.isShowing()&&!isFinishing()) {
             loadingDialog.show();
         }
     }

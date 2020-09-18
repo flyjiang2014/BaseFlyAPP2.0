@@ -1,16 +1,31 @@
 package com.base.flyjiang.baseflyapp.view;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Button;
+
 import com.base.flyjiang.baseflyapp.R;
 import com.base.flyjiang.baseflyapp.base.BaseActivity;
 import com.base.flyjiang.baseflyapp.contract.MainContract;
 import com.base.flyjiang.baseflyapp.presenter.MainPresenter;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import butterknife.BindView;
+import butterknife.OnClick;
+
 public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
+
+    @BindView(R.id.btn_01)
+    Button btn01;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EventBus.getDefault().register(this);
     }
 
     @Override
@@ -28,4 +43,27 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     public void init() {
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(String data) {
+
+        if (data.equals("123")) {
+            Log.e("jiang", "jiang01");
+        }
+//        switch (data.getEvent()) {
+//            case EventBean.LOGIN_STATUE_CHANGE:
+//                Log.e("jiang", "jiang01");
+//                break;
+//        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @OnClick(R.id.btn_01)
+    public void onViewClicked() {
+        startActivity(new Intent(mContext,Main2Activity.class));
+    }
 }
