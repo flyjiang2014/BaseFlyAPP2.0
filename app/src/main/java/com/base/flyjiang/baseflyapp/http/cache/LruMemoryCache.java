@@ -1,11 +1,14 @@
 package com.base.flyjiang.baseflyapp.http.cache;
 
 import android.graphics.Bitmap;
-import android.support.v4.util.LruCache;
+
 import com.base.flyjiang.baseflyapp.http.cache.utils.LogUtils;
 import com.base.flyjiang.baseflyapp.http.cache.utils.MemorySizeOf;
 import com.base.flyjiang.baseflyapp.http.cache.utils.Occupy;
+
 import java.util.HashMap;
+
+import androidx.collection.LruCache;
 
 /**
  * Created by Chu on 2016/9/10.

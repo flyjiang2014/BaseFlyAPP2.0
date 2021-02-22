@@ -2,18 +2,22 @@ package com.base.flyjiang.baseflyapp.http.cache;
 
 import android.os.Environment;
 import android.os.StatFs;
-import android.support.annotation.NonNull;
+
 import com.base.flyjiang.baseflyapp.http.cache.data.CacheResult;
 import com.base.flyjiang.baseflyapp.http.cache.diskconverter.IDiskConverter;
 import com.base.flyjiang.baseflyapp.http.cache.diskconverter.SerializableDiskConverter;
 import com.base.flyjiang.baseflyapp.http.cache.stategy.IFlowableStrategy;
 import com.base.flyjiang.baseflyapp.http.cache.stategy.IObservableStrategy;
 import com.base.flyjiang.baseflyapp.http.cache.utils.LogUtils;
+
 import org.reactivestreams.Publisher;
+
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.security.MessageDigest;
+
+import androidx.annotation.NonNull;
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableEmitter;

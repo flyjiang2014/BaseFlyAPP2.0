@@ -2,9 +2,6 @@ package com.base.flyjiang.baseflyapp.app;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.multidex.MultiDex;
-import android.support.v7.app.AppCompatDelegate;
 
 import com.base.flyjiang.baseflyapp.R;
 import com.base.flyjiang.baseflyapp.component.InitializeService;
@@ -24,6 +21,10 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.multidex.MultiDex;
+
 /**
  * Created by flyjiang on 2019/8/2.
  */
@@ -31,6 +32,7 @@ public class App extends Application {
 
     public static AppComponent appComponent;
     private static App instance;
+
     static { //设置刷新控件刷新head and foot
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);//启用矢量图兼容
         ClassicsFooter.REFRESH_FOOTER_NOTHING = "已加载全部数据";

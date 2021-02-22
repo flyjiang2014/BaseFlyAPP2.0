@@ -1,12 +1,12 @@
 package com.base.flyjiang.baseflyapp.utils;
 
-import android.support.annotation.NonNull;
-
 import java.text.FieldPosition;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
+import androidx.annotation.NonNull;
 
 /**
  * 动态时间格式化

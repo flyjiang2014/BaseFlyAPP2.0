@@ -1,12 +1,12 @@
 package com.base.flyjiang.baseflyapp.http.cache;
 
-
-import android.support.annotation.Nullable;
-
 import com.base.flyjiang.baseflyapp.http.cache.data.CacheResult;
 import com.base.flyjiang.baseflyapp.http.cache.data.ResultFrom;
+
 import java.io.IOException;
 import java.lang.reflect.Type;
+
+import androidx.annotation.Nullable;
 
 /**
  * 缓存核心

@@ -5,7 +5,7 @@ import com.bumptech.glide.annotation.GlideExtension;
 import com.bumptech.glide.annotation.GlideOption;
 import com.bumptech.glide.request.BaseRequestOptions;
 
-import io.reactivex.annotations.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * Created by ${flyjiang} on 2018/4/26.

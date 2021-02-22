@@ -1,8 +1,10 @@
 package com.base.flyjiang.baseflyapp.dagger.module;
 
 import android.app.Activity;
-import android.support.v4.app.Fragment;
+
 import com.base.flyjiang.baseflyapp.dagger.scope.FragmentScope;
+
+import androidx.fragment.app.Fragment;
 import dagger.Module;
 import dagger.Provides;
 

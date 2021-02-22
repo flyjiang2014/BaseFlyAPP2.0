@@ -1,7 +1,6 @@
 package com.base.flyjiang.baseflyapp.base;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.base.flyjiang.baseflyapp.app.App;
@@ -11,6 +10,8 @@ import com.base.flyjiang.baseflyapp.dagger.module.FragmentModule;
 import com.base.flyjiang.baseflyapp.widget.loading.LoadingLayout;
 
 import javax.inject.Inject;
+
+import androidx.annotation.Nullable;
 
 /**
  * Created by flyjiang on 2019/8/2.
