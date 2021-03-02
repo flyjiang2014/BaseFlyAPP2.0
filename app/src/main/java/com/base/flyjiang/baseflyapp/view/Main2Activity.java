@@ -24,13 +24,5 @@ public class Main2Activity extends SimpleActivity {
         RxCache rxchahe = new RxCache.Builder()
                 .setDebug(false)
                 .build();
-
     }
-
-
-//    @OnClick(R.id.btn_01)
-//    public void onViewClicked() {
-//        EventBus.getDefault().post("123");
-//        finish();
-//    }
 }
